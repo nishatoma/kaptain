@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import Link from 'next/link';
 
 
 const clientPromise = MongoClient.connect(process.env.MONGODB_URI || "")
@@ -30,12 +31,20 @@ export default async function HomePage() {
         <div key={chapter.id} className="border p-4 mb-4 rounded-lg shadow">
           <h2 className="text-xl font-semibold">{chapter.title}</h2>
           <ul className="mt-2">
-            {chapter.assignments.map((assignment: any) => (
+          {chapter.assignments.map((assignment: any) => {
+            // Extracting assignment number from the id (assuming it's a number)
+            const assignmentNumber = assignment.id.replace('assignment-', ''); // You can modify this depending on your id format
+            return (
               <li key={assignment.id} className="ml-4 mt-2">
-                ➤ {assignment.title}
+                {/* Displaying the assignment number */}
+                {assignmentNumber}.{' '}
+                <Link href={`/assignments/${assignment.id}`} className="text-blue-500 hover:underline">
+                  {assignment.title}
+                </Link>
               </li>
-            ))}
-          </ul>
+            );
+          })}
+        </ul>
         </div>
       ))}
     </main>
