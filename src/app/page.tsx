@@ -26,9 +26,9 @@ export default async function HomePage() {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Kaptain: Learn Kotlin</h1>
+      <h1 className="text-2xl font-bold mb-4 inline">Kaptain: Learn Kotlin</h1>
       {chapters.map((chapter: any) => (
-        <div key={chapter.id} className="border p-4 mb-4 rounded-lg shadow">
+        <div key={chapter.id} className="border p-4 mb-4 rounded-lg shadow max-w-md mx-auto">
           <h2 className="text-xl font-semibold">{chapter.title}</h2>
           <ul className="mt-2">
           {chapter.assignments.map((assignment: any) => {

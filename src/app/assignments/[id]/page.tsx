@@ -26,6 +26,7 @@ const AssignmentPage = async ({ params }: { params: { id: string } }) => {
             <BodyContent key={index} type={item.type} content={item.content} />
           ))}
       </div>
+      <br />
     </main>
   );
 };
