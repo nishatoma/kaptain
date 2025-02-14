@@ -19,7 +19,7 @@ export default function CodeSnippet({ content }: CodeSnippetProps) {
   };
 
   return (
-    <div className="relative group max-w-2xl my-4 rounded-lg shadow-lg border border-gray-700 bg-[#1e1e1e]">
+    <div className="relative group max-w-2xl my-4 rounded-lg shadow-lg border border-gray-100 bg-[#1e1e1e]">
       {/* Copy Button */}
       <button
         onClick={copyToClipboard}
@@ -37,8 +37,8 @@ export default function CodeSnippet({ content }: CodeSnippetProps) {
         showLineNumbers={false}
         wrapLines={true}
         customStyle={{
-          padding: "1rem",
-          borderRadius: "0.5rem",
+          padding: "0.5rem",
+          borderRadius: "0.8rem",
           backgroundColor: "#1e1e1e",
         }}
       >
