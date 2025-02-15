@@ -5,8 +5,8 @@ import BodyContent from '../../components/BodyContent';
 type idParam = Promise<{ id: string }>;
 
 // This function will be run on the server to fetch data for the assignment
-const AssignmentPage = async ({ params }: { params: { id: idParam } }) => {
-  const { id } = await params;
+const AssignmentPage = async (props: { params: idParam}) => {
+  const { id } = await props.params;
 
   // Fetching data from MongoDB
   const client = await MongoClient.connect(process.env.MONGODB_URI!);
