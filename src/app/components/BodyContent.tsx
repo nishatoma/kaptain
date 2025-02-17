@@ -21,7 +21,12 @@ const BodyContent = ({ type, content }: BodyContentProps) => {
                 </React.Fragment>
             ));
         case 'image':
-            return <img src={content} alt="Image content" className="max-w-full" />;
+            return (
+                <>
+                <img src={content} alt="Image content" className="max-w-full rounded-lg border border-gray-100 shadow-sm" />
+                <br />
+                </>
+            );
         case 'link':
             return (
                 <a href={content} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">

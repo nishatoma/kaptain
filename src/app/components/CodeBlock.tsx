@@ -19,7 +19,7 @@ export default function CodeSnippet({ content }: CodeSnippetProps) {
   };
 
   return (
-    <div className="relative group max-w-2xl my-4 rounded-lg shadow-lg border border-gray-100 bg-[#1e1e1e]">
+    <div className="relative group w-fit max-w-full my-4 rounded-lg shadow-lg border border-gray-100 bg-[#1e1e1e] overflow-auto">
       {/* Copy Button */}
       <button
         onClick={copyToClipboard}
@@ -30,20 +30,24 @@ export default function CodeSnippet({ content }: CodeSnippetProps) {
       </button>
 
       {/* Kotlin Code Display */}
-      <SyntaxHighlighter
-        language="kotlin"
-        style={atomDark}
-        wrapLongLines={true}
-        showLineNumbers={false}
-        wrapLines={true}
-        customStyle={{
-          padding: "0.5rem",
-          borderRadius: "0.8rem",
-          backgroundColor: "#1e1e1e",
-        }}
-      >
-        {content}
-      </SyntaxHighlighter>
+      <div className="inline-block">
+        <SyntaxHighlighter
+          language="kotlin"
+          style={atomDark}
+          showLineNumbers={false}
+          wrapLines={false}
+          customStyle={{
+            padding: "0.75rem",
+            borderRadius: "0.8rem",
+            backgroundColor: "#1e1e1e",
+            whiteSpace: "pre", // Ensures no wrapping
+            display: "inline-block", // Fit content width
+            maxWidth: "100%", // Prevents overflow on smaller screens
+          }}
+        >
+          {content}
+        </SyntaxHighlighter>
+      </div>
 
       {/* Copy Confirmation Message */}
       {copied && (
