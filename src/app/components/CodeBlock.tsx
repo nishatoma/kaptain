@@ -34,7 +34,7 @@ export default function CodeSnippet({ content }: CodeSnippetProps) {
         <SyntaxHighlighter
           language="kotlin"
           style={atomDark}
-          showLineNumbers={false}
+          showLineNumbers={true}
           wrapLines={false}
           customStyle={{
             padding: "0.75rem",
