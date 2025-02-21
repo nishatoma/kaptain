@@ -25,7 +25,7 @@ const AssignmentPage = async (props: { params: idParam}) => {
       <div>
         {assignment.body &&
           assignment.body.map((item: any, index: number) => (
-            <BodyContent key={index} type={item.type} content={item.content} />
+            <BodyContent key={index} type={item.type} content={item.content} options={item.options} />
           ))}
       </div>
       <br />
